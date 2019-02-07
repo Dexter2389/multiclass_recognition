@@ -38,7 +38,7 @@ This project uses dlib's face recognition resnet model for face detection. The d
   ```
 
 #### 3. Running the program
-  1. Run ```save_face.py``` to start the face capture process. I would recommend to capture atleast 250-300 photos of atleast 3 people.
+  1. Run ```save_face.py``` to start the face capture process and press ```k``` to capture images. I would recommend to capture atleast 250-300 photos of atleast 3 people.
   [But if you have already have your train images, please amke sure you save it in a folder called "faces"]
 
   2. Run ```pickling_facial_features.py``` to start the encoding process.
