@@ -50,5 +50,5 @@ This project uses dlib's face recognition resnet model for face detection. The d
 Bravo!! Guess what you computer know how your face looks with just 250 to 300 images....
 
 ## Acknowledgements
-  * Thanks to Adam Geitgey for his (awsome article)[https://medium.com/@ageitgey/machine-learning-is-fun-part-4-modern-face-recognition-with-deep-learning-c3cffc121d78] which gave me great ideas to implement this project.
-  * Also thanks to (Adrian Rosebrock)[https://www.pyimagesearch.com/2018/06/18/face-recognition-with-opencv-python-and-deep-learning/] for kick starting my project.
+  * Thanks to Adam Geitgey for his [awsome article](https://medium.com/@ageitgey/machine-learning-is-fun-part-4-modern-face-recognition-with-deep-learning-c3cffc121d78) which gave me great ideas to implement this project.
+  * Also thanks to [Adrian Rosebrock](https://www.pyimagesearch.com/2018/06/18/face-recognition-with-opencv-python-and-deep-learning/) for kick starting my project.
