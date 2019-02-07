@@ -28,9 +28,9 @@ def mlp_model():
     model.add(Dense(1024, activation='relu'))
     model.add(Dropout(0.8))
     model.add(Dense(num_of_faces, activation='softmax'))
-    sgd = optimizers.SGD(lr=1e-2)
+    adam = optimizers.Adam(lr=1e-2)
     model.compile(loss='categorical_crossentropy',
-                  optimizer=sgd, metrics=['accuracy'])
+                  optimizer=adam, metrics=['accuracy'])
     filepath = "mlp_model_keras2.h5"
     checkpoint1 = ModelCheckpoint(
         filepath, monitor='acc', verbose=1, save_best_only=True, mode='max')
