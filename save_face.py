@@ -1,3 +1,28 @@
+# MIT License
+#
+# Copyright (c) 2019 Saurabh Ghanekar
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+# 
+# Do not remove or modify any license notices.
+# ==============================================================================
+
 import cv2
 import numpy as np
 import os
@@ -6,12 +31,25 @@ import dlib
 from imutils.video import VideoStream
 from imutils import face_utils
 from imutils.face_utils import FaceAligner
+import urllib.request
 
 DIR = "faces/"
+MODEL = "dlib_face_recognition_resnet_model_v1.dat"
+SHAPE_PREDICTOR = "shape_predictor_68_face_landmarks.dat"
 detector = dlib.get_frontal_face_detector()
-shape_predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
+shape_predictor = dlib.shape_predictor(SHAPE_PREDICTOR)
 face_aligner = FaceAligner(shape_predictor, desiredFaceWidth=250)
 
+if not os.path.exists(MODEL) or not os.path.exists(SHAPE_PREDICTOR):
+    print('Beginning model download')
+    
+    if not os.path.exists(MODEL):
+        url = "https://raw.githubusercontent.com/ageitgey/face_recognition_models/master/face_recognition_models/models/dlib_face_recognition_resnet_model_v1.dat"
+        urllib.request.urlretrieve(url, MODEL)
+    
+    if not os.path.exists(SHAPE_PREDICTOR):
+        url = "https://raw.githubusercontent.com/tzutalin/dlib-android/master/data/shape_predictor_68_face_landmarks.dat"
+        urllib.request.urlretrieve(url, SHAPE_PREDICTOR)
 
 def create_dir(name):
     if not os.path.exists(name):
